@@ -1,0 +1,27 @@
+{
+ "agirlik": {
+  "c_isi": 0.4,
+  "c_park": 0.2,
+  "c_tesis": 0.15
+ },
+ "tesis_var": true,
+ "nufus_var": false,
+ "agirlik_metin": "yüzey ısısı 0,40 · parka uzaklık 0,20 · okul ve sağlık tesisi 0,15",
+ "eksik": [
+  "65+ nüfus"
+ ],
+ "nufus_toplam": null,
+ "yasli_yuksek_pct": null,
+ "kara_altigen": 1728,
+ "su_altigen": 236,
+ "yuksek_km2": 54.2,
+ "cok_yuksek_km2": 27.1,
+ "cok_yuksek_park_disi_pct": 100.0,
+ "park_400_kapsam_pct": 1.8,
+ "yerlesim_km2": 135.6,
+ "yerlesim_kurali": "1000 m içinde en az bir okul veya sağlık tesisi (OSM)",
+ "toplam_km2": 208.1,
+ "yuksek_park_disi_pct": 100.0,
+ "park_disi_veri": [],
+ "sahne": "LC09_L2SP_178035_20250725_02_T1+LC09_L2SP_178034_20250725_02_T1"
+}

@@ -1,0 +1,27 @@
+CoolScape AI – CBS analizi (QGIS 3.34+)
+
+AÇMAK: Klasörü bir yere çıkarın, coolscape_cbs.qgz dosyasını QGIS ile açın.
+  Katmanlar coolscape_cbs.gpkg içindedir (göreli yol; iki dosya aynı klasörde kalmalı).
+  OpenStreetMap altlığı internet bağlantısıyla görünür.
+
+HARİTALAR: Proje > Düzenler (Layouts) altında 3 baskı düzeni var. haritalar/ klasöründeki PDF/PNG'ler
+  altlıksız dışa aktarılmıştır; altlıklı hali için düzeni açıp Düzen > PDF olarak dışa aktar.
+
+KATMANLAR
+  oncelik_alanlari  H3 altıgenleri (UTM 36N). Alanlar: lst_c, lst_fark (kent medyanına göre °C), d_park_m,
+                    c_isi, c_park, c_tesis (0–1 ölçütler), oncelik (0–1), sinif_no / sinif (beşte birlik dilim)
+  parklar           5 pilot park; veri_durumu = uydu sahnesi içinde mi
+  park_tamponlari   400 m, 800 m (yürüme) ve 500 m (soğuma etkisi) halkaları
+  sicak_odaklar     yüksek ve çok yüksek öncelikli alanlar (birleştirilmiş)
+  aday_noktalar     uygulamadaki kuralla seçilen aday sisleme ve yol ıslatma noktaları
+  veri_kapsami      Landsat sahnesinin kapsadığı alan
+  su_alanlari       deniz/su altıgenleri (LST < 36 °C), analiz dışı
+
+AĞIRLIKLARI DEĞİŞTİRMEK: oncelik_alanlari > Alan hesaplayıcı, oncelik alanını güncelleyin, örn.:
+  (0.4*"c_isi" + 0.2*"c_park" + 0.15*"c_tesis") / 0.75
+  Nüfus eklenince: (0.4*"c_isi" + 0.25*"c_yasli" + 0.2*"c_park" + 0.15*"c_tesis")
+
+YENİDEN ÜRETMEK: python cbs_hazirla.py --yuzey isi_yuzeyi_h3.csv --tesis tesisler_osm.csv
+  ardından QGIS Python konsolunda qgis_proje.py çalıştırın.
+
+SINIRLAR: Nüfus/65+ verisi henüz eklenmedi (nufus_hazirla.py ile eklenecek). OSM huzurevi kaydı yok.
